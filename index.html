@@ -57,6 +57,10 @@
         document.getElementById('team2').innerHTML = generateTable(stats.conferences[0].teams[1]);
         document.getElementById('team3').innerHTML = generateTable(stats.conferences[1].teams[0]);
         document.getElementById('team4').innerHTML = generateTable(stats.conferences[1].teams[1]);
+        document.getElementById('team5').innerHTML = generateTable(stats.conferences[0].teams[0]);
+        document.getElementById('team6').innerHTML = generateTable(stats.conferences[0].teams[1]);
+        document.getElementById('team7').innerHTML = generateTable(stats.conferences[1].teams[0]);
+        document.getElementById('team8').innerHTML = generateTable(stats.conferences[1].teams[1]);
       } else {
         console.error('Failed to load stats.json; error code:', request.status);
       }
