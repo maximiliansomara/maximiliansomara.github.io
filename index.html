@@ -23,38 +23,37 @@
       if (request.status === 200) {
         stats = JSON.parse(request.responseText);
 
-	var league_singles = stats.stats.H - stats.stats.DOUBLE - stats.stats.TRIPLE - stats.stats.HR
-	var league_pa = stats.stats.AB + stats.stats.BB + stats.stats.HBP + stats.stats.SF
+	var league_singles = stats.stats.H - stats.stats.DOUBLE - stats.stats.TRIPLE - stats.stats.HR;
+	var league_pa = stats.stats.AB + stats.stats.BB + stats.stats.HBP + stats.stats.SF;
 
-	var bb_ce = 0.55
-	var hbp_ce = 0.57
-	var single_ce = 0.70
-	var double_ce = 1.00
-	var triple_ce = 1.27
-	var hr_ce = 1.65
+	var bb_ce = 0.55;
+	var hbp_ce = 0.57;
+	var single_ce = 0.70;
+	var double_ce = 1.00;
+	var triple_ce = 1.27;
+	var hr_ce = 1.65;
 
-	var league_woba = (bb_ce * stats.stats.BB + hbp_ce * stats.stats.HBP + single_ce * league_singles + double_ce * stats.stats.DOUBLE + triple_ce * stats.stats.TRIPLE + hr_ce * stats.stats.HR) / league_pa
-	var league_obp = (stats.stats.H + stats.stats.BB + stats.stats.HBP) / league_pa
+	var league_woba = (bb_ce * stats.stats.BB + hbp_ce * stats.stats.HBP + single_ce * league_singles + double_ce * stats.stats.DOUBLE + triple_ce * stats.stats.TRIPLE + hr_ce * stats.stats.HR) / league_pa;
+	var league_obp = (stats.stats.H + stats.stats.BB + stats.stats.HBP) / league_pa;
 
-	var woba_scale = league_obp / league_woba
-	var bb_ce = bb_ce * woba_scale
-	var hbp_ce = hbp_ce * woba_scale
-	var single_ce = single_ce * woba_scale
-	var triple_ce = triple_ce * woba_scale
-	var hr_ce = hr_ce * woba_scale
-
-	var league_woba = (bb_ce * stats.stats.BB + hbp_ce * stats.stats.HBP + single_ce * league_singles + double_ce * stats.stats.DOUBLE + triple_ce * stats.stats.TRIPLE + hr_ce * stats.stats.HR) / league_pa
+	var woba_scale = league_obp / league_woba;
+	bb_ce = bb_ce * woba_scale;
+	hbp_ce = hbp_ce * woba_scale;
+	single_ce = single_ce * woba_scale;
+	triple_ce = triple_ce * woba_scale;
+	hr_ce = hr_ce * woba_scale;
+	league_woba = (bb_ce * stats.stats.BB + hbp_ce * stats.stats.HBP + single_ce * league_singles + double_ce * stats.stats.DOUBLE + triple_ce * stats.stats.TRIPLE + hr_ce * stats.stats.HR) / league_pa;
 
         // Function to calculate sabermetric stats for a player
         function calculateSabermetrics(playerStats) {
-	  var singles = playerStats.H - playerStats.DOUBLE - playerStats.TRIPLE - playerStats.HR
-          var pa = playerStats.AB + playerStats.BB + playerStats.HBP + playerStats.SF
+	  var singles = playerStats.H - playerStats.DOUBLE - playerStats.TRIPLE - playerStats.HR;
+          var pa = playerStats.AB + playerStats.BB + playerStats.HBP + playerStats.SF;
 	  var avg = playerStats.H / playerStats.AB;
           var obp = (playerStats.H + playerStats.BB + playerStats.HBP) / (playerStats.AB + playerStats.BB + playerStats.HBP + playerStats.SF);
           var slg = (playerStats.H + playerStats.DOUBLE + 2 * playerStats.TRIPLE + 3 * playerStats.HR) / playerStats.AB;
           var iso = slg - avg;
-	  var babip = (playerStats.H - playerStats.HR) / (playerStats.AB - playerStats.HR - playerStats.K + playerStats.SF)
-          var woba = (bb_ce * playerStats.BB + hbp_ce * playerStats.hbp + single_ce * singles + double_ce * playerStats.DOUBLES + triple_ce * playerStats.TRIPLES + hr_ce * playerStats.HR) / pa
+	  var babip = (playerStats.H - playerStats.HR) / (playerStats.AB - playerStats.HR - playerStats.K + playerStats.SF);
+          var woba = (bb_ce * playerStats.BB + hbp_ce * playerStats.hbp + single_ce * singles + double_ce * playerStats.DOUBLES + triple_ce * playerStats.TRIPLES + hr_ce * playerStats.HR) / pa;
 	  return {
 	    'BB_rate': (playerStats.BB / pa * 100).toFixed(1),
 	    'K_rate': (playerStats.K / pa * 100).toFixed(1),
