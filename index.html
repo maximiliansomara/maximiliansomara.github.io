@@ -53,7 +53,7 @@
           var slg = (playerStats.H + playerStats.DOUBLE + 2 * playerStats.TRIPLE + 3 * playerStats.HR) / playerStats.AB;
           var iso = slg - avg;
 	  var babip = (playerStats.H - playerStats.HR) / (playerStats.AB - playerStats.HR - playerStats.K + playerStats.SF);
-          var woba = (bb_ce * playerStats.BB + hbp_ce * playerStats.hbp + single_ce * singles + double_ce * playerStats.DOUBLES + triple_ce * playerStats.TRIPLES + hr_ce * playerStats.HR) / pa;
+          var woba = (bb_ce * playerStats.BB + hbp_ce * playerStats.HBP + single_ce * singles + double_ce * playerStats.DOUBLES + triple_ce * playerStats.TRIPLES + hr_ce * playerStats.HR) / pa;
 	  return {
 	    'BB_rate': (playerStats.BB / pa * 100).toFixed(1),
 	    'K_rate': (playerStats.K / pa * 100).toFixed(1),
