@@ -59,7 +59,6 @@
             'AVG': avg.toFixed(3),
             'OBP': obp.toFixed(3),
             'SLG': slg.toFixed(3),
-            'OPS': ops.toFixed(3),
             'ISO': iso.toFixed(3),
 	    'BABIP': babip.toFixed(3),
           };
@@ -71,7 +70,7 @@
           for (var i = 0; i < team.players.length; i++) {
             var player = team.players[i];
             var sabermetrics = calculateSabermetrics(player.stats);
-            table += '<tr>\n<td>' + player.name + '</td><td>' + sabermetrics.AVG + '</td><td>' + sabermetrics.OBP + '</td><td>' + sabermetrics.SLG + '</td><td>' + sabermetrics.OPS + '</td><td>' + sabermetrics.BABIP + '</td><td>' + sabermetrics.ISO + '</td>\n</tr>\n';
+            table += '<tr>\n<td>' + player.name + '</td><td>' + sabermetrics.AVG + '</td><td>' + sabermetrics.OBP + '</td><td>' + sabermetrics.SLG + '</td><td>' + sabermetrics.BABIP + '</td><td>' + sabermetrics.ISO + '</td>\n</tr>\n';
           }
           table += '</tbody>\n</table>\n';
           return table;
