@@ -79,7 +79,7 @@
 	    var conf_pa = conference.stats.AB + conference.stats.BB + conference.stats.HBP + conference.stats.SF;
 	    var conf_woba = (bb_ce * conference.stats.BB + hbp_ce * conference.stats.HBP + single_ce + conf_singles + double_ce * conference.stats.DOUBLE + triple_ce * conference.stats.TRIPLE + hr_ce * conference.stats.HR) / conf_pa;
             var conf_wrc = (((conf_woba - league_woba) / woba_scale) + league_r_pa) * conf_pa;
-	    var wrcplus = (((wraa / pa + league_r_pa) + (league_r_pa - team.stats.BPF * league_r_pa)) / (conf_wrc / conf_pa)) * 100
+	    var wrcplus = (((sabermetrics.wRAA / pa + league_r_pa) + (league_r_pa - team.stats.BPF * league_r_pa)) / (conf_wrc / conf_pa)) * 100
             table += '<tr>\n<td>' + player.name + '</td><td>' + sabermetrics.BB_rate + '</td><td>' + sabermetrics.K_rate + '</td><td>' + sabermetrics.ISO + '</td><td>' + sabermetrics.BABIP + '</td><td>' + sabermetrics.AVG + '</td><td>' + sabermetrics.OBP + '</td><td>' + sabermetrics.SLG + '</td><td>' + sabermetrics.wOBA + '</td><td>' + wrcplus + '</td>\n</tr>\n';
           }
           table += '</tbody>\n</table>\n';
