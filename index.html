@@ -13,7 +13,6 @@
   <div id="team5"></div>
   <div id="team6"></div>
   <div id="team7"></div>
-  <div id="team8"></div>
 
   <script>
     // Load the JSON data
@@ -55,12 +54,11 @@
         // Generate the HTML tables for each team
         document.getElementById('team1').innerHTML = generateTable(stats.conferences[0].teams[0]);
         document.getElementById('team2').innerHTML = generateTable(stats.conferences[0].teams[1]);
-        document.getElementById('team3').innerHTML = generateTable(stats.conferences[1].teams[0]);
-        document.getElementById('team4').innerHTML = generateTable(stats.conferences[1].teams[1]);
-        document.getElementById('team5').innerHTML = generateTable(stats.conferences[0].teams[0]);
-        document.getElementById('team6').innerHTML = generateTable(stats.conferences[0].teams[1]);
-        document.getElementById('team7').innerHTML = generateTable(stats.conferences[1].teams[0]);
-        document.getElementById('team8').innerHTML = generateTable(stats.conferences[1].teams[1]);
+        document.getElementById('team3').innerHTML = generateTable(stats.conferences[0].teams[2]);
+        document.getElementById('team4').innerHTML = generateTable(stats.conferences[0].teams[3]);
+        document.getElementById('team5').innerHTML = generateTable(stats.conferences[0].teams[4]);
+        document.getElementById('team6').innerHTML = generateTable(stats.conferences[0].teams[5]);
+        document.getElementById('team7').innerHTML = generateTable(stats.conferences[0].teams[6]);
       } else {
         console.error('Failed to load stats.json; error code:', request.status);
       }
