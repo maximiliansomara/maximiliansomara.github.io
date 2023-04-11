@@ -27,7 +27,7 @@
         function calculateSabermetrics(playerStats) {
           var avg = playerStats.H / playerStats.AB;
           var obp = (playerStats.H + playerStats.BB + playerStats.HBP) / (playerStats.AB + playerStats.BB + playerStats.HBP + playerStats.SF);
-          var slg = (playerStats.H + playerStats.2B + 2 * playerStats.3B + 3 * playerStats.HR) / playerStats.AB;
+          var slg = (playerStats.H + playerStats.DOUBLE + 2 * playerStats.TRIPLE + 3 * playerStats.HR) / playerStats.AB;
           var ops = obp + slg;
           var iso = slg - avg;
           return {
